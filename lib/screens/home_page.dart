@@ -90,9 +90,11 @@ class HomePage extends ConsumerWidget {
       flex: 9,
       child: SingleChildScrollView(
         child: DataTable(
+          sortColumnIndex: ref.watch(sortColumnIndexProvider),
+          sortAscending: ref.watch(sortAscendingProvider),
           showCheckboxColumn: false,
           showBottomBorder: true,
-          columns: _columns(),
+          columns: _columns(ref),
           rows: _rows(ref),
         ),
       ),
@@ -130,7 +132,7 @@ class HomePage extends ConsumerWidget {
     return _temp;
   }
 
-  List<DataColumn> _columns() {
+  List<DataColumn> _columns(WidgetRef ref) {
     return <DataColumn>[
       DataColumn(
         label: Text(
@@ -139,42 +141,63 @@ class HomePage extends ConsumerWidget {
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Product Name',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Color',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Size',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Quantity',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Price',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Last release date',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
         ),
       ),
       DataColumn(
+        onSort: (column, ascending) {
+          onSort(column, ascending, ref);
+        },
         label: Text(
           'Last receive date',
           style: TextStyle(fontStyle: FontStyle.italic, fontSize: _tableHeaderFontSize),
@@ -385,5 +408,26 @@ class HomePage extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  void onSort(int columnIndex, bool isAscending, WidgetRef ref) {
+    if (columnIndex == 1) {
+      ref.read(tshirtsProvider.notifier).sortName(isAscending);
+    } else if (columnIndex == 2) {
+      ref.read(tshirtsProvider.notifier).sortColor(isAscending);
+    } else if (columnIndex == 3) {
+      ref.read(tshirtsProvider.notifier).sortSize(isAscending);
+    } else if (columnIndex == 4) {
+      ref.read(tshirtsProvider.notifier).sortQuantity(isAscending);
+    } else if (columnIndex == 5) {
+      ref.read(tshirtsProvider.notifier).sortPrice(isAscending);
+    } else if (columnIndex == 6) {
+      ref.read(tshirtsProvider.notifier).sortReleaseDate(isAscending);
+    } else if (columnIndex == 7) {
+      ref.read(tshirtsProvider.notifier).sortReceiveDate(isAscending);
+    }
+
+    ref.read(sortColumnIndexProvider.state).state = columnIndex;
+    ref.read(sortAscendingProvider.state).state = isAscending;
   }
 }

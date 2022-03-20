@@ -1,0 +1,39 @@
+Date : 2022-03-09 17:25:52
+Directory : /home/angelo/Dev/Flutter/git_tee/lib
+Total : 13 files,  1593 codes, 2 comments, 164 blanks, all 1759 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Dart     |         13 |      1,593 |          2 |        164 |      1,759 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                     |         13 |      1,593 |          2 |        164 |      1,759 |
+| data_classes                                                          |          1 |         87 |          0 |         11 |         98 |
+| screens                                                               |          6 |      1,160 |          0 |         74 |      1,234 |
++-----------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                              | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/angelo/Dev/Flutter/git_tee/lib/custom_numeric_formatter.dart    | Dart     |         17 |          0 |          4 |         21 |
+| /home/angelo/Dev/Flutter/git_tee/lib/custom_route.dart                | Dart     |         30 |          0 |         11 |         41 |
+| /home/angelo/Dev/Flutter/git_tee/lib/data_classes/tshirt.dart         | Dart     |         87 |          0 |         11 |         98 |
+| /home/angelo/Dev/Flutter/git_tee/lib/database_api.dart                | Dart     |        158 |          1 |         31 |        190 |
+| /home/angelo/Dev/Flutter/git_tee/lib/main.dart                        | Dart     |         31 |          0 |          7 |         38 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/add_screen.dart          | Dart     |         97 |          0 |         10 |        107 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/edit_screen.dart         | Dart     |        109 |          0 |          9 |        118 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/home_page.dart           | Dart     |        376 |          0 |         14 |        390 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/login_screen.dart        | Dart     |        160 |          0 |         11 |        171 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/new_product_screen .dart | Dart     |        271 |          0 |         17 |        288 |
+| /home/angelo/Dev/Flutter/git_tee/lib/screens/remove_screen .dart      | Dart     |        147 |          0 |         13 |        160 |
+| /home/angelo/Dev/Flutter/git_tee/lib/tshirts_provider.dart            | Dart     |         59 |          0 |         12 |         71 |
+| /home/angelo/Dev/Flutter/git_tee/lib/utilites.dart                    | Dart     |         51 |          1 |         14 |         66 |
+| Total                                                                 |          |      1,593 |          2 |        164 |      1,759 |
++-----------------------------------------------------------------------+----------+------------+------------+------------+------------+

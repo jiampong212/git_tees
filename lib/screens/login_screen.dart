@@ -14,6 +14,13 @@ final productProvider = StateProvider<Tshirts>((ref) {
   return Tshirts.empty();
 });
 
+final sortColumnIndexProvider = StateProvider<int?>((ref) {
+  return;
+});
+
+final sortAscendingProvider = StateProvider<bool>((ref) {
+  return false; 
+});
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({Key? key}) : super(key: key);
