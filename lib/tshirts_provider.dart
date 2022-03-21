@@ -10,7 +10,7 @@ class TshirtsProvider extends StateNotifier<List<Tshirts>> {
   List<Tshirts> _fullList = [];
 
   Future init(WidgetRef ref) async {
-    await DatabaseAPI().queryTable().then(
+    await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).queryTable().then(
       (value) {
         List<Tshirts> _temp = [];
 

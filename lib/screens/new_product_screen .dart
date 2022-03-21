@@ -240,7 +240,7 @@ class NewProductScreen extends ConsumerWidget {
 
                         String _productName = _nameController.text.trim();
                         String _productID = Utils.generateProductID(_productName + _tshirtColor + _tshirtSize);
-                        bool? _duplicatesCheck = await DatabaseAPI().checkForDuplicates(_productID);
+                        bool? _duplicatesCheck = await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).checkForDuplicates(_productID);
 
                         if (_duplicatesCheck == null) {
                           return;
@@ -251,7 +251,7 @@ class NewProductScreen extends ConsumerWidget {
                           return;
                         }
 
-                        await DatabaseAPI().newProduct(
+                        await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).newProduct(
                           productName: _productName,
                           color: _tshirtColor,
                           size: _tshirtSize,

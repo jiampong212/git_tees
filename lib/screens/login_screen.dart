@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:git_tee/tshirts_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mysql1/mysql1.dart';
 
 final tshirtsProvider = StateNotifierProvider<TshirtsProvider, List<Tshirts>>((ref) {
   return TshirtsProvider();
@@ -19,7 +20,11 @@ final sortColumnIndexProvider = StateProvider<int?>((ref) {
 });
 
 final sortAscendingProvider = StateProvider<bool>((ref) {
-  return false; 
+  return false;
+});
+
+final mysqlSettingsProvider = StateProvider<ConnectionSettings>((ref) {
+  return ConnectionSettings();
 });
 
 class LoginScreen extends ConsumerWidget {

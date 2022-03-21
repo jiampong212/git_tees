@@ -3,16 +3,11 @@ import 'package:git_tee/utilites.dart';
 import 'package:mysql1/mysql1.dart';
 
 class DatabaseAPI {
-  final String dbName = 'cpe_211';
   final String tableName = 'tshirt_inventory';
 
-  late final ConnectionSettings settings = ConnectionSettings(
-    host: 'localhost',
-    port: 3306,
-    user: 'angelo',
-    password: 'krystelle12',
-    db: dbName,
-  );
+  final ConnectionSettings settings;
+
+  DatabaseAPI({required this.settings});
 
   Future<Iterable> queryTable() async {
     EasyLoading.show();
@@ -56,6 +51,8 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
+      await Future.delayed(const Duration(seconds: 1));
+
       await conn.query(
         '''INSERT INTO `$tableName` (
           `${TableFieldsEnum.color.name}`,
@@ -96,6 +93,8 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
+      await Future.delayed(const Duration(seconds: 1));
+
       await conn.query('UPDATE `$tableName` SET `quantity`=?, `last_receive_date`=? WHERE `product_id`=?', [
         quantity,
         DateTime.now().toUtc(),
@@ -118,7 +117,7 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
-      // TODO: release date not updating
+      await Future.delayed(const Duration(seconds: 1));
 
       await conn.query('UPDATE `$tableName` SET `last_release_date`=? , `quantity`=? WHERE `product_id` = ?', [
         DateTime.now().toUtc(),
@@ -139,6 +138,8 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
+      await Future.delayed(const Duration(seconds: 1));
+
       await conn.query('DELETE FROM `$tableName` WHERE `product_id` = ?', [productID]);
       await conn.close();
       EasyLoading.dismiss();
@@ -156,6 +157,8 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
+      await Future.delayed(const Duration(seconds: 1));
+
       await conn.query('UPDATE `$tableName` SET `price`=? WHERE `product_id`=?', [
         price,
         productID,
@@ -172,7 +175,9 @@ class DatabaseAPI {
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
 
-      Iterable results = await conn.query('SELECT * FROM `tshirt_inventory` WHERE `product_id`=?', [productID]);
+      await Future.delayed(const Duration(seconds: 1));
+
+      Iterable results = await conn.query('SELECT * FROM `$tableName` WHERE `product_id`=?', [productID]);
 
       conn.close();
 
@@ -184,6 +189,21 @@ class DatabaseAPI {
     } catch (e) {
       EasyLoading.showError(e.toString());
       return null;
+    }
+  }
+
+  Future<bool> checkForDatabaseConnection() async {
+    EasyLoading.show(status: 'Loading');
+
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(settings);
+      await Future.delayed(const Duration(seconds: 1));
+
+      await conn.close();
+      EasyLoading.dismiss();
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 }

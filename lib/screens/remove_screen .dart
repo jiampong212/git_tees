@@ -67,7 +67,7 @@ class RemoveScreen extends ConsumerWidget {
                         int _originalQuantity = _tshirts.quantity;
                         int _removeQuantity = int.parse(_quantityController.text);
 
-                        await DatabaseAPI().removeShirt(
+                        await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).removeShirt(
                           quantity: _originalQuantity - _removeQuantity,
                           productID: _tshirts.productID,
                         );

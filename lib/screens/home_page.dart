@@ -373,7 +373,7 @@ class HomePage extends ConsumerWidget {
                               onPressed: () async {
                                 String productID = ref.read(productProvider).productID;
 
-                                await DatabaseAPI().deleteProduct(productID);
+                                await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).deleteProduct(productID);
                                 await ref.read(tshirtsProvider.notifier).reset(ref);
 
                                 Navigator.pop(context);

@@ -54,7 +54,7 @@ class AddScreen extends ConsumerWidget {
                         int _originalQuantity = _tshirts.quantity;
                         int _addQuantity = int.parse(_quantityController.text);
 
-                        await DatabaseAPI().addShirt(
+                        await DatabaseAPI(settings: ref.read(mysqlSettingsProvider)).addShirt(
                           quantity: _addQuantity + _originalQuantity,
                           productID: _tshirts.productID,
                         );
