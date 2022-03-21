@@ -13,6 +13,9 @@ class DatabaseAPI {
     EasyLoading.show();
     try {
       MySqlConnection conn = await MySqlConnection.connect(settings);
+
+      await Future.delayed(const Duration(seconds: 1));
+
       Iterable results = await conn.query(
         '''SELECT 
         `${TableFieldsEnum.color.name}`, 
