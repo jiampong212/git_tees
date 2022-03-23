@@ -94,4 +94,9 @@ class Tshirts {
         lastDateReleasedString.hashCode ^
         lastDateReceivedString.hashCode;
   }
+
+  @override
+  String toString() {
+    return 'Tshirts(color: $color, size: $size, price: $price, lastDateReleased: $lastDateReleased, lastDateReceived: $lastDateReceived, productID: $productID, quantity: $quantity, productName: $productName, priceStringPHP: $priceStringPHP, lastDateReleasedString: $lastDateReleasedString, lastDateReceivedString: $lastDateReceivedString)';
+  }
 }

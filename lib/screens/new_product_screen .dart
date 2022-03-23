@@ -260,7 +260,7 @@ class NewProductScreen extends ConsumerWidget {
                           productID: _productID,
                         );
 
-                        ref.read(tshirtsProvider.notifier).reset(ref);
+                        await ref.read(tshirtsProvider.notifier).reset(ref);
 
                         Navigator.pop(context);
                         _clear();

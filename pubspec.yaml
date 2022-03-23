@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_easyloading: ^3.0.3
   google_fonts: ^2.3.1
-  currency_icons: ^0.3.0
   mysql1: ^0.19.2
   flutter_riverpod: ^1.0.3
   intl: ^0.17.0

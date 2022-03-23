@@ -72,7 +72,7 @@ class RemoveScreen extends ConsumerWidget {
                           productID: _tshirts.productID,
                         );
 
-                        ref.read(tshirtsProvider.notifier).reset(ref);
+                        await ref.read(tshirtsProvider.notifier).reset(ref);
 
                         _clear();
                         Navigator.pop(context);

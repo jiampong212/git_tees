@@ -394,8 +394,8 @@ class HomePage extends ConsumerWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              ref.watch(tshirtsProvider.notifier).reset(ref);
+            onPressed: () async {
+              await ref.watch(tshirtsProvider.notifier).reset(ref);
             },
             child: const Text('Refresh List'),
             style: ElevatedButton.styleFrom(

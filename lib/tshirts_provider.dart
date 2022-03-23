@@ -39,8 +39,8 @@ class TshirtsProvider extends StateNotifier<List<Tshirts>> {
   }
 
   Future reset(WidgetRef ref) async {
-    await init(ref);
     _fullList = [];
+    await init(ref);
   }
 
   _resetSelectedRow(WidgetRef ref) {

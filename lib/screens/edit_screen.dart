@@ -62,7 +62,7 @@ class EditScreen extends ConsumerWidget {
                           productID: ref.read(productProvider).productID,
                         );
 
-                        ref.read(tshirtsProvider.notifier).reset(ref);
+                        await ref.read(tshirtsProvider.notifier).reset(ref);
                         _clear();
                         Navigator.pop(context);
                       },
